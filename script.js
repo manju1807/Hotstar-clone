@@ -10,33 +10,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const videos = [
     {
-      title: "Movie 1",
-      description: "Description of Movie 1",
+      title: "Avengers: Infinity War",
+      description:
+        "The Avengers must stop Thanos, an intergalactic warlord, from getting his hands on all the infinity stones. However, Thanos is prepared to go to any lengths to carry out his insane plan.",
       videoFile: "images/video1.mp4",
     },
     {
-      title: "Movie 2",
-      description: "Description of Movie 2",
-      videoFile:
-        "images/Marvel Studios' Avengers - Official Trailer (1080p).mp4",
+      title: "The Amazing Spiderman 2",
+      description:
+        "Spider-Man embarks on a mission to protect his loved ones when OsCorp, owned by his childhood friend Harry Osborn, unleashes a slew of genetically-modified villains against him.",
+      videoFile: "images/video2.mp4",
     },
     {
-      title: "Movie 3",
-      description: "Description of Movie 3",
-      videoFile:
-        "images/Pirates of the Caribbean Dead Men Tell No Tales - Official Trailer (1080p).mp4",
-    },
-    {
-      title: "Movie 4",
-      description: "Description of Movie 4",
-      videoFile:
-        "images/KUNG FU PANDA 2 Clip - Final Fight With Shen (2011) (1080p).mp4",
-    },
-    {
-      title: "Movie 5",
-      description: "Description of Movie 5",
-      videoFile:
-        "images/Beauty and the Beast – US Official Final Trailer (1080p).mp4",
+      title: "Pirates of the Caribbean: Dead Men Tell No Tales",
+      description:
+        "To break the curse of Flying Dutchman, Captain Jack Sparrow and Henry Turner embark on a mission to find the Trident of Poseidon. They also try to stop Captain Salazar who intends to rule the seas.",
+      videoFile: "images/video3.mp4",
     },
   ];
 
@@ -87,6 +76,14 @@ document.addEventListener("DOMContentLoaded", () => {
       updateVideoPlayer();
       updateActiveCard();
     });
+  });
+
+  // Add event listener for the 'ended' event of the video player
+  videoPlayer.addEventListener("ended", () => {
+    // Increment the active index to play the next video
+    activeIndex = (activeIndex + 1) % videos.length;
+    updateVideoPlayer();
+    updateActiveCard();
   });
 
   updateVideoPlayer();
